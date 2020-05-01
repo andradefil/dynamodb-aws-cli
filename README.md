@@ -3,7 +3,7 @@
 ## Extension of official aws dynamodb-local image adding **aws cli** and **init scripts at container start-up**
 
 
-This image extends the official [dynamodb-local docker image](https://hub.docker.com/r/amazon/dynamodb-local/) adding the `possibility to run custom scripts at start-up` (e.g. Run a script to create dynamodb table). and 
+[This image](https://hub.docker.com/repository/docker/killboard/dynamodb-aws-cli) extends the official [dynamodb-local docker image](https://hub.docker.com/r/amazon/dynamodb-local/) adding the `possibility to run custom scripts at start-up` (e.g. Run a script to create dynamodb table). and 
 `includes the last version of aws cli`.
 
 ## Usage
