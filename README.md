@@ -2,25 +2,21 @@
 
 ## Extension of official aws dynamodb-local image adding **aws cli** and **init scripts at container start-up**
 
-## Motivation
-The official aws [dynamodb-local docker image](https://hub.docker.com/r/amazon/dynamodb-local/) not have
-the `aws cli` installed and not permits `run scripts` automatically after dynamodb service starts 
-(e.g. Run a script to create dynamodb table).
 
-This image `extends the official aws` docker image adding the `possibility to run custom scripts at start-up` and 
+This image extends the official [dynamodb-local docker image](https://hub.docker.com/r/amazon/dynamodb-local/) adding the `possibility to run custom scripts at start-up` (e.g. Run a script to create dynamodb table). and 
 `includes the last version of aws cli`.
 
-## Getting Started
+## Usage
 
 ### Run
 > docker run -p 8000:8000 killboard/dynamodb-aws-cli
 
 ### Run with scripts at startup
-> docker run -v $(pwd)/example:/init-scripts -p 8000:8000 killboard/dynamodb-aws-cli  
+Example script to create an table at start-up
+```shellscript
+#!/bin/bash
 
+aws dynamodb create-table --region=us-east-1 --cli-input-json file://create-table-platform-transactions.json --endpoint-url http://localhost:8000
+```
 
-
-
-You can find a sample application on GitHub demonstrating how to use DynamoDB local for testing.
-
-To learn how to configure DynamoDB local, see the DynamoDB local usage notes in the AWS Docs.
+> docker run -v $(pwd)/example:/init-scripts -p 8000:8000 killboard/dynamodb-aws-cli
