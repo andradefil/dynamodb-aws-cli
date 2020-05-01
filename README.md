@@ -9,14 +9,17 @@ This image extends the official [dynamodb-local docker image](https://hub.docker
 ## Usage
 
 ### Run
-> docker run -p 8000:8000 killboard/dynamodb-aws-cli
+```
+docker run -p 8000:8000 killboard/dynamodb-aws-cli
+```
 
 ### Run with scripts at startup
-Example script to create an table at start-up
-```shellscript
-#!/bin/bash
-
+This script is in `example` folder
+```bash
 aws dynamodb create-table --region=us-east-1 --cli-input-json file://create-table-platform-transactions.json --endpoint-url http://localhost:8000
 ```
 
-> docker run -v $(pwd)/example:/init-scripts -p 8000:8000 killboard/dynamodb-aws-cli
+simple run in terminal
+```
+docker run -v $(pwd)/example:/init-scripts -p 8000:8000 killboard/dynamodb-aws-cli
+```
