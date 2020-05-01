@@ -8,7 +8,7 @@ This image extends the official [dynamodb-local docker image](https://hub.docker
 
 ## Usage
 
-### Run
+### Run in command line
 ```
 docker run -p 8000:8000 killboard/dynamodb-aws-cli
 ```
@@ -22,4 +22,9 @@ aws dynamodb create-table --region=us-east-1 --cli-input-json file://create-tabl
 simple run in terminal
 ```
 docker run -v $(pwd)/example:/init-scripts -p 8000:8000 killboard/dynamodb-aws-cli
+```
+### Run with docker-compose
+To run with docker compose simple run
+```
+docker-compose up
 ```

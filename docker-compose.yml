@@ -1,0 +1,8 @@
+version: '3.3'
+services:
+  dynamodb:
+    image: killboard/dynamodb-aws-cli:latest
+    ports:
+      - 8000:8000
+    volumes:
+    - ./example:/init-scripts
